@@ -10,15 +10,15 @@
                 <span class="title">算法练习</span>
             </el-col>
             <el-col :span="6" class="user">
-                <div class="btn-fullscreen icon-font">
+<!--                <div class="btn-fullscreen icon-font">-->
 
-                </div>
+<!--                </div>-->
                 <div class="userinfo">
-                    <div class="btn-fullscreen icon-font">
-                        <el-tooltip class="item" effect="dark" content="锁屏" placement="bottom">
-                            <i class="iconfont icon-bofangqi-suoping" @click="handleLockScreen"></i>
-                        </el-tooltip>
-                    </div>
+<!--                    <div class="btn-fullscreen icon-font">-->
+<!--                        <el-tooltip class="item" effect="dark" content="锁屏" placement="bottom">-->
+<!--                            <i class="iconfont icon-bofangqi-suoping" @click="handleLockScreen"></i>-->
+<!--                        </el-tooltip>-->
+<!--                    </div>-->
                     <div class="btn-fullscreen icon-font">
                         <el-tooltip class="item" effect="dark" content="换色" placement="bottom">
                             <theme/>

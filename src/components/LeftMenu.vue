@@ -30,23 +30,7 @@
         data() {
             return {
                 collapse: false,
-                items: [
-                    {
-                        icon: 'el-icon-s-home',
-                        name: '首页',
-                        path: '/home'
-                    },
-                    {
-                        icon: 'el-icon-s-cooperation',
-                        name: '初步上手',
-                        children: [
-                            {
-                                name: '第一个three.js',
-                                path: '/firstThreeJs'
-                            }
-                        ]
-                    }
-                ]
+                items: []
             }
         },
         components: {
@@ -55,11 +39,34 @@
         methods: {
             initScroll() {
                 this.scroll = new Bscroll(this.$refs.wrapper, {})
+            },
+            initItems(){
+                console.log(111111111, this.$router)
+                const menu = this.$router.options.routes[1].children
+                console.log(menu)
+                menu.forEach((item, index)=>{
+                    const { isRoot, name, icon, path } = item
+                    if(isRoot){
+                        const obj = {
+                            icon: `el-icon-${icon}`,
+                            name,
+                            children: [],
+                            path
+                        }
+                        this.items.push(obj)
+                    }else{
+                        const obj = { path, name }
+                        this.items[this.items.length-1].children.push(obj)
+                    }
+
+                })
             }
         },
         mounted() {
+
             this.$nextTick(() => {
                 this.initScroll()
+                this.initItems()
             })
         },
         created() {
@@ -102,7 +109,7 @@
     }
 
     .sidebar-el-menu:not(.el-menu--collapse) {
-        width: 250px;
+        /*width: 250px;*/
     }
 
     .el-menu {
@@ -115,7 +122,7 @@
     }
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
-        min-width: 180px;
+        min-width: 250px;
         min-height: 400px;
     }
 
@@ -124,7 +131,7 @@
     }
 
     .el-submenu .el-menu-item {
-        min-width: 180px;
+        min-width: 250px;
     }
 
     .hiddenDropdown,
