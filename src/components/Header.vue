@@ -40,7 +40,6 @@
 <script>
   import bus from '../common/bus'
   import theme from '../common/theme'
-  import Aplayer from 'vue-aplayer'
   // @ is an alias to /src
   export default {
     name: 'header-nav',
@@ -137,7 +136,6 @@
     },
     components: {
       theme,
-      Aplayer
     }
   }
 </script>
@@ -158,9 +156,6 @@
         display: inline-block;
     }
 
-    .aplayer {
-        margin: 0;
-    }
 
     .icon-btn {
         font-size: 36px;
