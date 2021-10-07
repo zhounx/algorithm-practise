@@ -23,12 +23,17 @@ const router = new Router({
                     isRoot: true
                 },
                 {
-                    path: '/findMedianSortedArrays',
+                    path: '/704binarySearch',
+                    name: '704二分查找',
+                    component: () => import('./views/BinarySearch/BinarySearch')
+                },
+                {
+                    path: '/004findMedianSortedArrays',
                     name: '004找两个正序数组的中位数',
                     component: () => import('./views/BinarySearch/FindMedianSortedArrays')
                 },
                 {
-                    path: '/findRotationSortedArrays',
+                    path: '/033findRotationSortedArrays',
                     name: '033搜索旋转排序数组',
                     component: () => import('./views/BinarySearch/FindRotationSortedArrays')
                 },
@@ -39,12 +44,12 @@ const router = new Router({
                     isRoot: true
                 },
                 {
-                    path: '/addTwoNumbers',
+                    path: '/002addTwoNumbers',
                     name: '002两数相加',
                     component: () => import('./views/LinkedList/AddTwoNumbers')
                 },
                 {
-                    path: '/removeNthFromEnd',
+                    path: '/019removeNthFromEnd',
                     name: '019.删除链表倒数第N个节点',
                     component: () => import('./views/LinkedList/RemoveNthFromEnd')
                 },

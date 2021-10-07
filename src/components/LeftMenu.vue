@@ -41,9 +41,9 @@
                 this.scroll = new Bscroll(this.$refs.wrapper, {})
             },
             initItems(){
-                console.log(111111111, this.$router)
+                // console.log(111111111, this.$router)
                 const menu = this.$router.options.routes[1].children
-                console.log(menu)
+                // console.log(menu)
                 menu.forEach((item, index)=>{
                     const { isRoot, name, icon, path } = item
                     if(isRoot){
