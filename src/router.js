@@ -38,6 +38,11 @@ const router = new Router({
                     component: () => import('./views/BinarySearch/FindRotationSortedArrays')
                 },
                 {
+                    path: '/611triangleNumber',
+                    name: '611有效三角形的个数',
+                    component: () => import('./views/BinarySearch/TriangleNumber')
+                },
+                {
                     path: '/linkedList',
                     name: '链表',
                     icon: 'link',
