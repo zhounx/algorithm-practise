@@ -17,6 +17,57 @@ const router = new Router({
             redirect: '/binarySearch',
             children: [
                 {
+                    path: '/handWritingCode',
+                    name: '手写代码',
+                    icon: 'edit',
+                    isRoot: true
+                },
+                {
+                    path: '/callApplyAndBind',
+                    name: 'call, apply和bind',
+                    component: () => import('./views/HandWritingCode/CallApplyAndBind')
+                },
+                {
+                    path: '/deepClone',
+                    name: 'deepClone',
+                    component: () => import('./views/HandWritingCode/DeepClone')
+                },
+                {
+                    path: '/DT',
+                    name: 'DT',
+                    component: () => import('./views/HandWritingCode/DT')
+                },
+                {
+                    path: '/extends',
+                    name: 'extends',
+                    component: () => import('./views/HandWritingCode/Extends')
+                },
+                {
+                    path: '/instanceOf',
+                    name: 'instanceOf',
+                    component: () => import('./views/HandWritingCode/InstanceOf')
+                },
+                {
+                    path: '/JSON',
+                    name: 'JSON',
+                    component: () => import('./views/HandWritingCode/JSON')
+                },
+                {
+                    path: '/MVVM',
+                    name: 'MVVM',
+                    component: () => import('./views/HandWritingCode/MVVM')
+                },
+                {
+                    path: '/new',
+                    name: 'new',
+                    component: () => import('./views/HandWritingCode/New')
+                },
+                {
+                    path: '/promise',
+                    name: 'promise',
+                    component: () => import('./views/HandWritingCode/Promise')
+                },
+                {
                     path: '/binarySearch',
                     name: '二分查找',
                     icon: 'search',

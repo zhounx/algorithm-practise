@@ -1,9 +1,7 @@
 <template>
 	<div>
-		<h2 class="topic-dry">给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回
-			-1。</h2>
+
 		<el-button type="primary" @click="run">运行</el-button>
-		<div class="result">结果：{{result}}</div>
 	</div>
 </template>
 
@@ -12,39 +10,60 @@
     export default {
         name: '',
         data() {
-            return {
-                result: ''
-            }
+            return {}
         },
         methods: {
             run() {
-                console.log('运行')
-                // this.result = this.search([-1,0,3,5,9,12], 9) // 4
-                // this.result = this.search( [-1,0,3,5,9,12], 2) // -1
-                this.result = this.search([5], 5) // 0
+                // console.log(111)
+                console.log(this.deepClone({
+                    a: 1,
+                    b: 'aaa',
+                    c: [1, 3, 5],
+                    d: {
+                        e: function () {
+                            console.log(123)
+                        },
+                        f: [],
+                        g: {
+                            h: 2.5555,
+                            i: '',
+                            j: new Date(),
+                            k: [{
+                                j: 1, k: 2
+                            }, {
+                                l: 3, m: 4
+                            }],
+                            l: /\d/g
+                        },
+						h: undefined,
+						i: null
+                    }
+                }))
             },
             /**
              * @param {number[]} nums
              * @param {number} target
              * @return {number}
              */
-            search(nums, target) {
-                let low = 0, high = nums.length - 1
-                while (low <= high) {
-                    let halfIndex = Math.floor((high + low) / 2)
-                    let tempNum = nums[halfIndex]
-                    // console.log(halfIndex, tempNum,  low, high)
-                    if (tempNum === target) {
-                       return  halfIndex
-                    } else if (tempNum > target) {
-                        // console.log('大了')
-                        high = halfIndex - 1
-                    } else {
-                        // console.log('小了')
-                        low = halfIndex + 1
-                    }
+            deepClone(target) {
+				if(target === null){
+				    return null
+				}
+                if(typeof target !== 'object'){
+                    return target
                 }
-                return -1
+                if(target.constructor === Date){
+                    return new Date(target)
+                }
+                if(target.constructor === RegExp){
+                    return new RegExp(target)
+                }
+                let newObj = new target.constructor() // 保持继承链
+				Object.keys(target).forEach(key=>{ // forin还会遍历原型链上的可枚举属性
+				    const val = target[key]
+					newObj[key] = typeof val === 'object'? this.deepClone(val) : val // 递归没有直接用deepClong，解除函数名耦合
+				})
+				return newObj
             }
         },
         mounted() {
