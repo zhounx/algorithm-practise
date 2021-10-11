@@ -61,7 +61,7 @@
                 let newObj = new target.constructor() // 保持继承链
 				Object.keys(target).forEach(key=>{ // forin还会遍历原型链上的可枚举属性
 				    const val = target[key]
-					newObj[key] = typeof val === 'object'? this.deepClone(val) : val // 递归没有直接用deepClong，解除函数名耦合
+					newObj[key] = typeof val === 'object'? this.deepClone(val) : val
 				})
 				return newObj
             }

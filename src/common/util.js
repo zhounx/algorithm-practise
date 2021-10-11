@@ -127,8 +127,12 @@ const getTreeFromLayerOrderArray = function(array) {
             let v = array[index++];
             top.right = v == null ? null : new TreeNode(v);
         }
-        if (top.left) queue.push(top.left);
-        if (top.right) queue.push(top.right);
+        if (top.left){
+            queue.push(top.left);
+        }
+        if (top.right){
+            queue.push(top.right);
+        }
     }
     return root;
 }

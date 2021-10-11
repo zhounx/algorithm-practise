@@ -34,7 +34,7 @@
 					const a = nums[i]
 					for(let j=i+1;j<l;j++){ //i+1即为a边下一条边的索引
 						const b = nums[j]
-                        let k = j // 防止k - j 出现负数
+                        let k = j // ***防止k - j 出现负数
 					    // 找出满足a+b>c的***最大的***第三条边c，使用二分查找
 						let left = j + 1, right = l - 1
 						while(left <= right){

@@ -1,9 +1,6 @@
 <template>
 	<div>
-		<h2 class="topic-dry">给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回
-			-1。</h2>
 		<el-button type="primary" @click="run">运行</el-button>
-		<div class="result">结果：{{result}}</div>
 	</div>
 </template>
 
@@ -18,34 +15,68 @@
         },
         methods: {
             run() {
-                console.log('运行')
-                // this.result = this.search([-1,0,3,5,9,12], 9) // 4
-                // this.result = this.search( [-1,0,3,5,9,12], 2) // -1
-                this.result = this.search([5], 5) // 0
-            },
-            /**
-             * @param {number[]} nums
-             * @param {number} target
-             * @return {number}
-             */
-            search(nums, target) {
-                let low = 0, high = nums.length - 1
-                while (low <= high) {
-                    let halfIndex = Math.floor((high + low) / 2)
-                    let tempNum = nums[halfIndex]
-                    // console.log(halfIndex, tempNum,  low, high)
-                    if (tempNum === target) {
-                       return  halfIndex
-                    } else if (tempNum > target) {
-                        // console.log('大了')
-                        high = halfIndex - 1
-                    } else {
-                        // console.log('小了')
-                        low = halfIndex + 1
-                    }
+				let testObj = {
+                    abc: '德玛西亚'
+				}
+                function testFn(params1, params2, params3){
+                    console.log('test:', params1, params2, params3, this.abc)
                 }
-                return -1
-            }
+				/****************** Call ********************/
+				Function.prototype.call2 = function (obj = window) {
+                    // 必须得是funtion调该方法
+					if(typeof this !== 'function'){
+					    throw new Error('this is not a function')
+					}
+					obj.fn = this
+					const args = [...arguments].slice(1)
+					const result = obj.fn(...args)
+					delete obj.fn
+					return result
+                }
+
+
+                testFn.call2(testObj,'call1', 2)
+
+				console.log('测试新的call')
+
+                /****************** Apply ********************/
+
+                Function.prototype.apply2 = function (obj = window) {
+                    // 必须得是funtion调该方法
+                    if(typeof this !== 'function'){
+                        throw new Error('this is not a function')
+                    }
+                    obj.fn = this
+					const args = arguments[1]
+					const result = args ? obj.fn(...args):obj.fn()
+					delete obj.fn
+					return result
+                }
+
+                testFn.apply2(testObj,['apply1', 3])
+                /****************** Bind ********************/
+
+                Function.prototype.bind2 = function (obj = window) {
+                    // 必须得是funtion调该方法
+                    if(typeof this !== 'function'){
+                        throw new Error('this is not a function')
+                    }
+                    const args = [...arguments].slice(1)
+					const self = this
+					const Temp = function () {}
+                    const newFn = function () {
+                        // 如果this是返回方法的实例对象，则表明是由new创建，应该指向实例this
+						return self.apply(this instanceof newFn ? this : obj, [...args, ...arguments])
+                    }
+                    // 新方法继承原来方法的原型链
+                    Temp.prototype = this.prototype
+					newFn.prototype = new Temp
+                    return newFn
+                }
+                const testNewBind1 = testFn.bind2(testObj, 'bind1', 2)
+				testNewBind1(666)
+
+            },
         },
         mounted() {
 
