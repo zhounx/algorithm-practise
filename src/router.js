@@ -52,6 +52,7 @@ const HandWrightingList = [
     },
 ]
 
+// 二分查找
 const BinarySearchList = [
     {
         path: '/704-binarySearch',
@@ -90,6 +91,7 @@ const BinarySearchList = [
     },
 ]
 
+// 二叉树
 const BinaryTreeList = [
     {
         path: '/102-binarySearch',
@@ -103,16 +105,80 @@ const BinaryTreeList = [
     },
 ]
 
+// 链表
 const LinkedListList = [
     {
-        path: '/002addTwoNumbers',
-        name: '002两数相加',
+        path: '/002-addTwoNumbers',
+        name: '002-两数相加',
         component: () => import('./views/LinkedList/AddTwoNumbers')
     },
+    {
+        path: '/019-removeNthFromEnd',
+        name: '019-删除链表倒数第N个节点',
+        component: () => import('./views/LinkedList/RemoveNthFromEnd')
+    },
+]
+
+// 哈希表
+const HashTableList = [
+    {
+        path: '/001-twoSum',
+        name: '001-两数之和',
+        component: () => import('./views/HashTable/TwoSum')
+    },
+]
+
+// 两根指针
+const TwoPointersList = [
+    {
+        path: '/141-hasCycle',
+        name: '141-环形链表',
+        component: () => import('./views/TwoPointers/HasCycle')
+    },
+]
+
+// DFS深度优先
+const DFSList = [
     {
         path: '/019removeNthFromEnd',
         name: '019.删除链表倒数第N个节点',
         component: () => import('./views/LinkedList/RemoveNthFromEnd')
+    },
+]
+
+// 拓扑排序
+const TopologicalSortList = [
+    {
+        path: '/207-canFinish',
+        name: '207-课程表',
+        component: () => import('./views/TopologicalSort/CanFinish')
+    },
+]
+
+// 字典树
+const TrieList = [
+    {
+        path: '/019removeNthFromEnd',
+        name: '019.删除链表倒数第N个节点',
+        component: () => import('./views/LinkedList/RemoveNthFromEnd')
+    },
+]
+
+// 动态规划
+const DynamicProgrammingList = [
+    {
+        path: '/072-minDistance',
+        name: '072-编辑距离',
+        component: () => import('./views/DynamicProgramming/MinDistance')
+    },
+]
+
+// 字符串
+const StringList = [
+    {
+        path: '/003-lengthOfLongestSubstring',
+        name: '003-无重复字符的最长子串',
+        component: () => import('./views/String/LengthOfLongestSubstring')
     },
 ]
 
@@ -157,7 +223,56 @@ const router = new Router({
                     icon: 'link',
                     isRoot: true
                 },
-                ...LinkedListList
+                ...LinkedListList,
+                {
+                    path: '/hashTableList',
+                    name: '哈希表',
+                    icon: 's-grid',
+                    isRoot: true
+                },
+                ...HashTableList,
+                {
+                    path: '/string',
+                    name: '字符串',
+                    icon: 'search',
+                    isRoot: true
+                },
+                ...StringList,
+                {
+                    path: '/dynamicProgrammingList',
+                    name: '动态规划',
+                    icon: 'date',
+                    isRoot: true
+                },
+                ...DynamicProgrammingList,
+                {
+                    path: '/DFS',
+                    name: 'DFS深度优先',
+                    icon: 'receiving',
+                    isRoot: true
+                },
+                ...DFSList,
+                {
+                    path: '/topologicalSortList',
+                    name: '拓扑排序',
+                    icon: 'set-up',
+                    isRoot: true
+                },
+                ...TopologicalSortList,
+                {
+                    path: '/twoPointersList',
+                    name: '两根指针',
+                    icon: 'position',
+                    isRoot: true
+                },
+                ...TwoPointersList,
+                {
+                    path: '/trie',
+                    name: '字典树',
+                    icon: 'notebook-1',
+                    isRoot: true
+                },
+                ...TrieList,
             ]
         },
         {

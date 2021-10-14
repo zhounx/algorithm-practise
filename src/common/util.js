@@ -13,11 +13,11 @@ const ListNode = function(val, next = null) {
  * @param {array} a
  * @return {ListNode}
  */
-const getListFromArray = (a) => {
-    let dummy = new ListNode()
-    let pre = dummy;
-    a.forEach(x => pre = pre.next = new ListNode(x));
-    return dummy.next;
+const getListFromArray = (arr) => {
+    let node = new ListNode()
+    let pre = node;
+    arr.forEach(item => pre = pre.next = new ListNode(item));
+    return node.next;
 }
 /**
  * 将一个链表转为数组
@@ -43,7 +43,7 @@ const logList = (node) => {
         node = node.next;
     }
     str += 'end';
-    log(str);
+    console.log(str);
 }
 // 还有一个常用小技巧，每次写链表的操作，都要注意判断表头，如果创建一个空表头来进行操作会方便很多。
 
