@@ -158,9 +158,9 @@ const TopologicalSortList = [
 // 字典树
 const TrieList = [
     {
-        path: '/019removeNthFromEnd',
-        name: '019.删除链表倒数第N个节点',
-        component: () => import('./views/LinkedList/RemoveNthFromEnd')
+        path: '/139-wordBreak',
+        name: '139-单词拆分',
+        component: () => import('./views/Trie/WordBreak')
     },
 ]
 

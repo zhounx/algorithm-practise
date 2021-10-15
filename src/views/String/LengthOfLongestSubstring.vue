@@ -43,6 +43,7 @@
                     }else{
                         queue = queue.slice(index+1)
 						queue.push(letter)
+
 					}
 					maxL = Math.max(queue.length, maxL)
 				}
